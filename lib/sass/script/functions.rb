@@ -1315,6 +1315,26 @@ module Sass::Script
       end
     end
     declare :if, [:condition, :if_true, :if_false]
+    
+    def sin(value)
+      numeric_transformation(value) {|n| Math.sin(n)}
+    end
+    declare :sin, [:value]
+    
+    def cos(value)
+      numeric_transformation(value) {|n| Math.cos(n)}
+    end
+    declare :cos, [:value]
+    
+    def sin_deg(value)
+      numeric_transformation(value) {|n| Math.sin(n * Math::PI / 180.0)}
+    end
+    declare :sin_deg, [:value]
+    
+    def cos_deg(value)
+      numeric_transformation(value) {|n| Math.cos(n * Math::PI / 180.0)}
+    end
+    declare :cos_deg, [:value]
 
     private
 
